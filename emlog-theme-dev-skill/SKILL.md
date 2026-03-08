@@ -5,8 +5,7 @@ description: 协助开发 Emlog 主题。当用户想要创建新主题、修改
 
 # Emlog 主题开发助手
 
-此 Skill 旨在帮助用户开发 Emlog 主题，包含最新的开发规范和接口文档。
-参考文档：https://www.emlog.net/docs/dev/template
+此 Skill 旨在协助开发 Emlog 主题。当用户想要创建新主题、修改现有主题、询问 Emlog 主题开发规范或查找模板变量时调用。
 
 ## 1. 目录结构与文件说明
 
@@ -33,13 +32,12 @@ description: 协助开发 Emlog 主题。当用户想要创建新主题、修改
 ### 防止直接访问
 每个 PHP 文件开头必须包含以下代码，防止被直接访问：
 ```php
-<?php
 if(!defined('EMLOG_ROOT')) {exit('error!');}
-?>
 ```
 
 ### 模板信息注释 (header.php)
 `header.php` 开头必须包含模板信息注释：
+
 ```php
 /*
 Template Name:我的主题
@@ -103,8 +101,8 @@ Emlog 使用原生 PHP 作为模板引擎。
 
 ## 5. 最佳实践
 
-- PHP 版本适配：代码需兼容 PHP 7.4 及 PHP 8.1
+- PHP 版本需要适配 PHP7.4+
 
 ## 参考文档
 
-emlog主题开发文档：./template.md
+emlog主题完整开发文档：./template.md

@@ -52,23 +52,16 @@ $storage->deleteAllName('YES'); // 删除该插件所有数据
 
 ### Input
 
-使用 `Input` 类获取 GET/POST 变量，禁止直接访问 `$_GET`/`$_POST` 以防止 SQL 注入。
+使用 `Input` 类获取 GET/POST 变量，禁止使用 `$_GET` 和 `$_POST`
 
 ```php
-// 获取字符串 (默认值为空)
-$str = Input::postStrVar('name', '');
-$str = Input::getStrVar('name', '');
-
-// 获取整数 (默认值为 0)
-$int = Input::postIntVar('id', 0);
-$int = Input::getIntVar('id', 0);
-
-// 获取数组
-$ids = Input::postIntArray('ids'); // 数字数组
-$tags = Input::postStrArray('tags'); // 字符串数组
-
-// 混合获取 (GET/POST/COOKIE)
-$val = Input::requestStrVar('key', 'default');
+$str = Input::postStrVar('name', ''); // 从 POST 获取字符串，默认值为空
+$str = Input::getStrVar('name', ''); // 从 GET 获取字符串，默认值为空
+$int = Input::postIntVar('id', 0); // 从 POST 获取整数，默认值为 0
+$int = Input::getIntVar('id', 0); // 从 GET 获取整数，默认值为 0
+$ids = Input::postIntArray('ids'); // 从 POST 获取数字数组
+$tags = Input::postStrArray('tags'); // 从 POST 获取字符串数组
+$val = Input::requestStrVar('key', 'default'); // 从 GET/POST/COOKIE 获取字符串，默认值为 'default'
 ```
 
 ### Output
@@ -89,9 +82,9 @@ Output::error('Permission denied'); // 返回错误 JSON
 - `getFirstImage($content)`: 获取内容中的第一张图片 URL。
 - `smartDate($timestamp)`: 返回“1分钟前”等友好时间格式。
 
-## 其他最佳实践
+## 最佳实践
 
-- PHP 版本适配：代码需兼容 PHP 7.4 及 PHP 8.1
+- PHP 版本需要适配 PHP7.4+
 - 生命周期管理：在 `_callback.php` 中实现 `callback_init`（初始化数据）、`callback_rm`（清理数据）。
 - 绿色插件：不要修改系统核心表；卸载时务必清理所有自建数据。
 
