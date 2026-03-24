@@ -26,10 +26,21 @@
 
 ### Cursor 编辑器
 
-将本项目的 Skill 文件添加到 Trae 编辑器的 Skill 目录中
+将本项目的 Skill 文件添加到 Cursor 编辑器的 Skill 目录中
 
 ```
 .cursor/
+└── skills/
+    └── emlog-plugin-dev-skill/
+    └── emlog-theme-dev-skill/
+```
+
+### Claude Code
+
+将本项目的 Skill 文件添加到 Claude Code 的 Skill 目录中
+
+```
+.claude/
 └── skills/
     └── emlog-plugin-dev-skill/
     └── emlog-theme-dev-skill/
